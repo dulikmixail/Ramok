@@ -1,0 +1,39 @@
+#slider {position:relative;}
+#txtLogin{border:0px; padding-top:2px; height:18px;}
+#txtPass{border:0px; padding-top:2px; height:18px;}
+#Search1_txtSearch{border:0px; padding-top:2px; height:18px;}
+
+.tab_price{
+	position:fixed; 
+	width:20px; 
+	padding:7px;
+	height:120px;
+	top:300px; 
+	left:0px; 
+	background-color:#666; 
+	color:#fff; 
+	vertical-align:middle; 
+	cursor:pointer;
+	font-weight:bold;
+	font-size:18px;
+	writing-mode: tb-rl;
+	text-decoration:none;
+	}
+	
+.tab_search{
+	width:20px; 
+	height:150px;
+	margin:0;
+	position:fixed;
+	right:0px;
+	top:300px;
+	background-color:#666;
+	color:#fff;
+	vertical-align:middle;
+	padding:7px;
+	cursor:pointer;
+	font-weight:bold;
+	font-size:18px;
+	writing-mode: tb-rl;
+	text-decoration:none;
+	}

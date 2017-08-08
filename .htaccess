@@ -1,0 +1,18 @@
+
+
+Options -Indexes +FollowSymLinks
+RewriteEngine on
+
+RewriteCond %{HTTP_HOST} ^ramok.by
+RewriteRule (.*) http://www.ramok.by/$1 [R=301,L]
+
+#RewriteCond %{REQUEST_URI} !^/admin/$
+#RewriteCond %{REQUEST_URI} !^/phpc/$
+#RewriteRule ^([^.]*[^./])/$ /$1 [R]
+
+RewriteRule ^admin$ /admin/ [R]
+RewriteRule ^member$ /phpc/ [R]
+RewriteRule ^([^.]*[^.])?$ /phpc/index.php [L]
+RewriteRule ^[^.]*[^./]\\.html$ /phpc/index.php [L]
+
+

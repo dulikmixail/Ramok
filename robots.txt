@@ -1,0 +1,18 @@
+User-Agent: Yandex
+Disallow: /client/
+Disallow: /files/
+Disallow: /images/
+
+Host: www.ramok.by
+Sitemap: http://www.ramok.by/sitemap.xml
+
+User-Agent: Googlebot
+Disallow: /client/
+Disallow: /files/
+Disallow: /images/
+
+
+User-Agent: *
+Disallow: /client/
+Disallow: /files/
+Disallow: /images/

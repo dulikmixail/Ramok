@@ -1,0 +1,9 @@
+DIV#hold {
+	Z-INDEX: 2; LEFT: 0px; OVERFLOW: hidden; WIDTH: 598px; POSITION: relative; TOP: 0px; HEIGHT: 94px
+}
+DIV#wn {
+	Z-INDEX: 1; LEFT: 0px; OVERFLOW: hidden; WIDTH: 598px; POSITION: absolute; TOP: 0px; HEIGHT: 94px
+}
+DIV#lyr1 {
+	Z-INDEX: 1; LEFT: 0px; VISIBILITY: hidden; POSITION: absolute
+}

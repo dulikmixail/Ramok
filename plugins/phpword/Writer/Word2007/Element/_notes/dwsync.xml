@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="AbstractElement.php" server="robin.beget.ru//biblioxc.bget.ru/public_html/" local="130842493800000000" remote="130842493800000000" Dst="0" />
+<file name="Bookmark.php" server="robin.beget.ru//biblioxc.bget.ru/public_html/" local="130842493800000000" remote="130842493800000000" Dst="0" />
+<file name="Chart.php" server="robin.beget.ru//biblioxc.bget.ru/public_html/" local="130842493800000000" remote="130842493800000000" Dst="0" />
+<file name="CheckBox.php" server="robin.beget.ru//biblioxc.bget.ru/public_html/" local="130842493800000000" remote="130842493800000000" Dst="0" />
+<file name="Container.php" server="robin.beget.ru//biblioxc.bget.ru/public_html/" local="130842493800000000" remote="130842493800000000" Dst="0" />
+<file name="Endnote.php" server="robin.beget.ru//biblioxc.bget.ru/public_html/" local="130842493800000000" remote="130842493800000000" Dst="0" />
+<file name="Field.php" server="robin.beget.ru//biblioxc.bget.ru/public_html/" local="130842493800000000" remote="130842493800000000" Dst="0" />
+<file name="Footnote.php" server="robin.beget.ru//biblioxc.bget.ru/public_html/" local="130842493800000000" remote="130842493800000000" Dst="0" />
+<file name="FormField.php" server="robin.beget.ru//biblioxc.bget.ru/public_html/" local="130842493800000000" remote="130842493800000000" Dst="0" />
+<file name="Image.php" server="robin.beget.ru//biblioxc.bget.ru/public_html/" local="130842493800000000" remote="130842493800000000" Dst="0" />
+<file name="Line.php" server="robin.beget.ru//biblioxc.bget.ru/public_html/" local="130842493800000000" remote="130842493800000000" Dst="0" />
+<file name="Link.php" server="robin.beget.ru//biblioxc.bget.ru/public_html/" local="130842493800000000" remote="130842493800000000" Dst="0" />
+<file name="ListItem.php" server="robin.beget.ru//biblioxc.bget.ru/public_html/" local="130842493800000000" remote="130842493800000000" Dst="0" />
+<file name="ListItemRun.php" server="robin.beget.ru//biblioxc.bget.ru/public_html/" local="130842493800000000" remote="130842493800000000" Dst="0" />
+<file name="Object.php" server="robin.beget.ru//biblioxc.bget.ru/public_html/" local="130842493800000000" remote="130842493800000000" Dst="0" />
+<file name="PageBreak.php" server="robin.beget.ru//biblioxc.bget.ru/public_html/" local="130842493800000000" remote="130842493800000000" Dst="0" />
+<file name="PreserveText.php" server="robin.beget.ru//biblioxc.bget.ru/public_html/" local="130842493800000000" remote="130842493800000000" Dst="0" />
+<file name="SDT.php" server="robin.beget.ru//biblioxc.bget.ru/public_html/" local="130842493800000000" remote="130842493800000000" Dst="0" />
+<file name="Shape.php" server="robin.beget.ru//biblioxc.bget.ru/public_html/" local="130842493800000000" remote="130842493800000000" Dst="0" />
+<file name="Table.php" server="robin.beget.ru//biblioxc.bget.ru/public_html/" local="130842493800000000" remote="130842493800000000" Dst="0" />
+<file name="Text.php" server="robin.beget.ru//biblioxc.bget.ru/public_html/" local="130842493800000000" remote="130842493800000000" Dst="0" />
+<file name="TextBox.php" server="robin.beget.ru//biblioxc.bget.ru/public_html/" local="130842493800000000" remote="130842493800000000" Dst="0" />
+<file name="TextBreak.php" server="robin.beget.ru//biblioxc.bget.ru/public_html/" local="130842493800000000" remote="130842493800000000" Dst="0" />
+<file name="TextRun.php" server="robin.beget.ru//biblioxc.bget.ru/public_html/" local="130842493800000000" remote="130842493800000000" Dst="0" />
+<file name="Title.php" server="robin.beget.ru//biblioxc.bget.ru/public_html/" local="130842493800000000" remote="130842493800000000" Dst="0" />
+<file name="TOC.php" server="robin.beget.ru//biblioxc.bget.ru/public_html/" local="130842493800000000" remote="130842493800000000" Dst="0" />
+</dwsync>

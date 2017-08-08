@@ -1,0 +1,21 @@
+	#slider ul, #slider li{
+		margin:0;
+		padding:0;
+		list-style:none;
+		}
+	#slider li{ 
+		/* 
+			define width and height of list item (slide)
+			entire slider area will adjust according to the parameters provided here
+		*/ 
+		width:1000px;
+		height:252px;
+		overflow:hidden; 
+		position: relative;
+		z-index: 2;
+		}
+	span#prevBtn{ display: none }
+	span#nextBtn{ display: none}	
+	
+	#slider li span { position: absolute; top: 35px; left: 45px; color: #78a4d1; font-size: 18px }
+	#slider li span h1 { color: #fff; font-size: 36px; font-family: Georgia; font-weight: 300 } 
