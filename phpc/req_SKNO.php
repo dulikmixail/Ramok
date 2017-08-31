@@ -13,23 +13,23 @@ if($_GET['s']=='submit') {
     $exception='';
 
     if(!preg_match('{\\d\\d\\d\\d\\d\\d\\d\\d\\d}',$_POST['unp'])){
-        $exception .='РЈРќРџ РІРІРµРґРµРЅ РЅРµ РІРµСЂРЅРѕ <br>';
+        $exception .='УНП введен не верно <br>';
     }
     if(!preg_match('{(0?[1-9]|[12][0-9]|3[01])\.(0?[1-9]|1[012])\.((19|20)\\d\\d)}',$_POST['date'])){
-        $exception .='Р’РµРґРёС‚Рµ РґР°С‚Сѓ РІ С„РѕСЂРјР°С‚Рµ DD.MM.YYYY <br>';
+        $exception .='Ведите дату в формате DD.MM.YYYY <br>';
     }
     if(!preg_match('{^(([0,1][0-9])|(2[0-3])):[0-5][0-9]$}',$_POST['time'])){
-        $exception .='Р’РІРµРґРёС‚Рµ РІСЂРµРјСЏ РІ С„РѕСЂРјР°С‚Рµ РќРќ:MM <br>';
+        $exception .='Введите время в формате НН:MM <br>';
     }
 
     if($exception==''){
         $date = DateTime::createFromFormat('d.m.Y', $_POST['date']);
         $query = mysql_query("SELECT * FROM tbl_req_SKNO WHERE date='".$date->format('Y-m-d')."' AND time='".$_POST['time']."'");
         if(mysql_num_rows($query)==0){
-            $info='Р’Р°С€Р° Р·Р°СЏРІРєР° РїСЂРёРЅСЏС‚Р°';
+            $info='Ваша заявка принята<br>';
             $query = mysql_query("INSERT INTO tbl_req_SKNO SET unp='".$_POST['unp']."',company='".$_POST['company']."',date='".$_POST['date']."',`time`='".$_POST['time']."';");
         } else {
-            $exception='Р”Р°РЅРЅРѕРµ РІСЂРµРјСЏ СѓР¶Рµ Р·Р°РЅСЏС‚Рѕ!';
+            $exception='Данное время уже занято!';
         }
 
     }
@@ -37,7 +37,7 @@ if($_GET['s']=='submit') {
 
 
 $content .= '<head>
-<meta charset="UTF-8">
+<meta charset="WINDOWS-1251">
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript" src="../js/datetimepicker/jquery.datetimepicker.js"></script>
 <link type="text/css" href="../js/datetimepicker/jquery.datetimepicker.css" rel="stylesheet" />
@@ -48,28 +48,29 @@ $content .= '
 <form action="?s=submit" method="POST">
     
 
-    <label for="unp">РЈРќРџ</label><input type="number" name="unp" id="unp" placeholder="123456789" value="123456789"><br>
-    <label for="company">РљРѕРјР°РїРЅРёСЏ</label><input type="text" name="company" id="company" placeholder="РРџ Р РѕРіР° Рё РєРѕРїС‹С‚Р°" value="РРџ Р РѕРіР° Рё РєРѕРїС‹С‚Р°"><br>
+    <label for="unp">УНП</label><input type="number" name="unp" id="unp" placeholder="123456789" value="123456789"><br>
+    <label for="company">Комапния</label><input type="text" name="company" id="company" placeholder="ИП Рога и копыта" value="ИП Рога и копыта"><br>
 
-    <label for="date">Р’С‹Р±РµСЂРёС‚Рµ Р¶РµР»Р°РµРјСѓСЋ РґР°С‚Сѓ</label>
+    <label for="date">Выберите желаемую дату</label>
 
     <input id="date" name="date" type="text" value="" /><br>
 
 
-    <label for="time" id="time_label" hidden>Р’СЂРµРјСЏ</label>
-    <input id="time" name="time" type="text" value="" hidden/>
+    <label for="time" id="time_label">Время</label>
+    <input id="time" name="time" type="text" value=""/>
     <br>
-    <label name="exception">'.$exception.'</label>
-    <label name="info">'.$info.'</label>
-    <input type="submit" value="РћРїСЂР°РІРёС‚СЊ">
+    <label id="exception" name="exception">'.$exception.'</label>
+    <label id="info" name="info">'.$info.'</label>
+    <input type="submit" value="Оправить">
 
 </form>
 
 
 <script type="text/javascript">
-jQuery(\'#date\').focus(function() {
+jQuery(\'#time\').attr(\'readonly\',true);
+
+jQuery(\'#date\').click(function() {
     jQuery(\'#time\').hide();
-    jQuery(\'#time_label\').hide();
     jQuery(\'#time\').val("");
 });
 
@@ -120,25 +121,30 @@ function onAjaxSuccess(data)
     }
     
    if(arr.length!=0){
+       jQuery(\'#time\').show();
+       jQuery(\'#time_label\').show();
+       jQuery(\'#info\').text("");
+       jQuery(\'#info\').hide();
+        
        jQuery(\'#time\').datetimepicker({
        datepicker:false,
        format:\'H:i\',
        timepicker:true,
        allowTimes: arr
    });
-       jQuery(\'#time\').hide();
-       jQuery(\'#time_label\').hide();
+       
    }else {
     jQuery(\'#time\').datetimepicker({
     datepicker:false,
     format:\'H:i\',
     timepicker:false,
 });
+    jQuery(\'#info\').show();
+    jQuery(\'#time\').hide();
+    jQuery(\'#time_label\').hide();
+    jQuery(\'#info\').text("На выбранную дату записе нету");
    }
-  
 
-     jQuery(\'#time_label\').show();
-     jQuery(\'#time\').show();
 }
 
 function getDateValToJson() {
@@ -166,7 +172,7 @@ function getDateToday() {
 function sendDateJson() {
   $.ajax({
         type: "GET",
-        url: "/phpc/ajaxtest.php",
+        url: "/ajaxtest.php",
         data: getDateValToJson(),
         success: onAjaxSuccess,
         async: true,
