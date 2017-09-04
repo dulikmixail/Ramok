@@ -27,7 +27,7 @@ if($_GET['s']=='submit') {
         $query = mysql_query("SELECT * FROM tbl_req_SKNO WHERE date='".$date->format('Y-m-d')."' AND time='".$_POST['time']."'");
         if(mysql_num_rows($query)==0){
             $info='Ваша заявка принята<br>';
-            $query = mysql_query("INSERT INTO tbl_req_SKNO SET unp='".$_POST['unp']."',company='".$_POST['company']."',date='".$_POST['date']."',`time`='".$_POST['time']."';");
+            $query = mysql_query("INSERT INTO tbl_req_SKNO SET unp='".$_POST['unp']."',company='".$_POST['company']."',date='".$date->format('Y-m-d')."',`time`='".$_POST['time']."';");
         } else {
             $exception='Данное время уже занято!';
         }
@@ -41,32 +41,51 @@ $content .= '<head>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript" src="../js/datetimepicker/jquery.datetimepicker.js"></script>
 <link type="text/css" href="../js/datetimepicker/jquery.datetimepicker.css" rel="stylesheet" />
+<link type="text/css" href="../cssSKNO.css" rel="stylesheet" />
 </head>';
+
 
 $content .= '
 
-<form action="?s=submit" method="POST">
-    
+<form class="form_simply" action="?s=submit" method="POST">
+<div class="field">
+   <label for="unp">УНП</label>
+   <input type="number" name="unp" id="unp" placeholder="123456789" value="123456789"><br>
+</div>
 
-    <label for="unp">УНП</label><input type="number" name="unp" id="unp" placeholder="123456789" value="123456789"><br>
-    <label for="company">Комапния</label><input type="text" name="company" id="company" placeholder="ИП Рога и копыта" value="ИП Рога и копыта"><br>
+<div class="field">
+   <label for="company">Комапния</label>
+   <input type="text" name="company" id="company" placeholder="ИП Рога и копыта" value="ИП Рога и копыта"><br>
+</div>
 
+
+<div class="field">
     <label for="date">Выберите желаемую дату</label>
-
     <input id="date" name="date" type="text" value="" /><br>
+</div>
 
-
+<div class="field">
     <label for="time" id="time_label">Время</label>
-    <input id="time" name="time" type="text" value=""/>
-    <br>
+    <input id="time" name="time" type="text" value=""/><br>
+</div>
+ 
+<div class="exception">
     <label id="exception" name="exception">'.$exception.'</label>
+</div>   
+
+<div class="info">
     <label id="info" name="info">'.$info.'</label>
-    <input type="submit" value="Оправить">
+</div>   
+
+<div class="form_buttons">
+    <input type="submit" value="Оставить заявку">
+</div>
 
 </form>
 
 
 <script type="text/javascript">
+
 jQuery(\'#time\').attr(\'readonly\',true);
 
 jQuery(\'#date\').click(function() {
@@ -82,9 +101,7 @@ if(jQuery(\'#date\').val().trim()!=""){
     sendDateJson();    
 
 } else {
-    jQuery(\'#time\').datetimepicker({
-  timepicker:false,
-});
+    jQuery(\'#time\').datetimepicker({timepicker:false,});
 }
     
 });
@@ -105,7 +122,6 @@ jQuery(\'#time\').datetimepicker({
   timepicker:false,
 });
 
-sendDateJson(); 
 
 });
 
@@ -172,7 +188,7 @@ function getDateToday() {
 function sendDateJson() {
   $.ajax({
         type: "GET",
-        url: "/ajaxtest.php",
+        url: "/phpc/ajaxtest.php",
         data: getDateValToJson(),
         success: onAjaxSuccess,
         async: true,
@@ -184,8 +200,5 @@ function sendDateJson() {
 
 ';
 
-$content .= '
-
-';
 
 echo $content;

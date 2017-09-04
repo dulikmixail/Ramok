@@ -1374,3 +1374,47 @@ a.button-details:active {
     font-style: italic;
     text-align: right;
 }
+
+.form_simply .field {
+    clear:both;
+    text-align:right;
+    height: 26px;
+}
+
+.form_simply .field label{
+    float:left;
+    font-weight:bold;
+    padding: 0px 10px;
+}
+
+.form_simply {
+    float: left;
+    height: 175px;
+    position:relative;
+}
+
+.form_simply .form_buttons {
+    position: absolute;
+    bottom: 0px;
+    padding-left: 120px;
+}
+
+.form_simply .form_buttons input {
+    padding: 3px 10px;
+}
+
+.form_simply .exception,
+.form_simply .info {
+    position: absolute;
+    padding-left: 100px;
+
+}
+
+.form_simply .exception {
+    color: red;
+}
+
+.form_simply .info {
+    color: green;
+    padding: 10px;
+}
